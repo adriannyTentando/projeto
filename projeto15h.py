@@ -5,11 +5,11 @@ import plotly.express as px
 def main():
     data = pd.read_excel('Base.xlsx',sheet_name='Base')
     title = 'Dashboard - Projeto Vendas'
-    st.set_page_config(page_title=title, layout ='Wide')
+    st.set_page_config(page_title=title, layout ="wide")
     st.title(title)
 
     ano = data['Ano'].unique()
-    paises = data['país'].unique()
+    paises = data['País'].unique()
 
     filtro_Ano = st.sidebar.selectbox("selecione o Ano:", options=['todos'] + sorted(ano), index=0)
     filtro_pais = st.sidebar.selectbox("selecione o País:", options=['todos'] + sorted(paises), index=0)
