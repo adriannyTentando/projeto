@@ -38,18 +38,18 @@ def main():
 )
     
     gf_venda_produto = px.pie(
-    data_filtrada.groupby('produto')['Unidades Vendidas'].sum().reset_index(),
-    values= 'Unidades Vendidas', nome = 'produtos',
+    data_filtrada.groupby('Produto')['Unidades Vendidas'].sum().reset_index(),
+    values= 'Unidades Vendidas', nome = 'Produto',
     title='Distribuição de Produtos Vendidos'
 )
 
-    custo_lucro_data = data_filtrada.groupby(['segmento'])[['COGS','lucro']].reset_index().melt(
+    custo_lucro_data = data_filtrada.groupby(['Segmento'])[['COGS','Lucro']].reset_index().melt(
     id_vars="Segmento", value_vars=['COGS','Lucro'])
     custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x:f'R$ {x:.2f}')
 
     gf_custo_lucro = px.bar(
     custo_lucro_data,
-    x = "Segmento", y ='Value',
+    x = "Segmento", y ='value',
     title="Relação entre custo e lucro",
     color='variable',
     barmode='group',
