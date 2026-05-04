@@ -44,7 +44,7 @@ def main():
 )
 
     custo_lucro_data = data_filtrada.groupby(['Segmento'])[['COGS','Lucro']].reset_index().melt(
-    id_vars="Segmento", value_vars=['COGS','Lucro'])
+        id_vars="Segmento", value_vars=['COGS','Lucro'])
     custo_lucro_data['value_formatado'] = custo_lucro_data['value'].apply(lambda x:f'R$ {x:.2f}')
 
     gf_custo_lucro = px.bar(
