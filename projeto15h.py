@@ -28,5 +28,3 @@ def main():
     text_auto=True
     )
     gf_lucroporsegmento.update_layout(showlegend=False)
-
-main()
